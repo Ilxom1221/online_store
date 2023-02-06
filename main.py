@@ -4,6 +4,8 @@ import os
 from dotenv import load_dotenv
 from keyboard import *
 from database import *
+from parsing import parsStore
+from config import *
 
 
 
@@ -54,12 +56,37 @@ async def creat_cart_for_user(message:Message):
 
 
 async def show_main_menu(message:Message):
-    await message.answer('Выберите ', reply_markup=generate_main_menu())
+    await message.answer('Выберите Каталог', reply_markup=generate_main_menu())
 
 
 @dp.message_handler(lambda message: '✔ Каталог' in message.text)
 async def make_order(message: Message):
-    await message.answer('Выберите Католог', reply_markup=generate_category_menu())
+    await message.answer('Выберите Католог', reply_markup=generate_category_shop())
+
+
+@dp.message_handler(content_types=['text'])
+async def get_categories_shop(message:Message):
+    text_category = message.text
+    category_fun = parsStore(get_value(text_category))
+    print(category_fun)
+    for category in category_fun[::-1]:
+        images = category.get('images')
+        name = category.get('name')
+        price = category.get('price')
+        link = category.get('link')
+
+        await message.answer_photo(photo=images, parse_mode='HTML', caption=f'''
+<b>Название:</b> {name}
+<b>Цена:</b> {price}
+''')
+
+
+
+
+
+
+
+
 
 
 

@@ -123,3 +123,5 @@ def insert_to_cart(chat_id):
     ''', (chat_id,))
     database.commit()
     database.close()
+
+

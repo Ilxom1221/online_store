@@ -4,14 +4,6 @@ from config import CATEGORIES
 
 
 
-# def button_store():
-#     murkup = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-#     buttons = []
-#     for category in CATEGORIES.keys():
-#         btn = KeyboardButton(text=category)
-#         buttons.append(btn)
-#     murkup.add(*buttons)
-#     return murkup
 
 
 def send_phone_button():
@@ -29,8 +21,18 @@ def generate_main_menu():
 
 
 
-def generate_category_menu():
-    markup = InlineKeyboardMarkup(row_width=2)
-    markup.row(
-        InlineKeyboardButton(text='Всё меню', url='')
-    )
+def generate_category_shop():
+    murkup = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+    buttons = []
+    for category in CATEGORIES.keys():
+        btn = KeyboardButton(text=category)
+        buttons.append(btn)
+    murkup.add(*buttons)
+    return murkup
+
+
+def button_link(link):
+    murkup = InlineKeyboardMarkup()
+    btn = InlineKeyboardButton(text='Ссылка', url=link)
+    murkup.add(btn)
+    return murkup
