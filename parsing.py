@@ -25,7 +25,7 @@ def parsStore(category):
         name =' '.join(art.find('span', class_='car-block-titile').get_text().split())
         price =' '.join(art.find('h4').get_text().split())
         link = HOST + art.find('a', class_='product_list_img slide').get('href')
-
+        #print(images, name, price, link)
 
         list_news.append({
             'images': images,
@@ -33,6 +33,7 @@ def parsStore(category):
             'price': price,
             'link': link
         })
+        #print(list_news)
     return list_news
 
 parsStore('products/category/22')

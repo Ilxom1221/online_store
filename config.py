@@ -1,8 +1,8 @@
 CATEGORIES = {
-    'Теливизори': 'products/category/8',
-    'Ноутбуки': 'products/category/22',
-    'Телефоны': 'products/category/17',
-    'Планшеты': 'products/category/21'
+    'Теливизори': 'https://www.mediapark.uz/products/category/8',
+    'Ноутбуки': 'https://www.mediapark.uz/products/category/22',
+    'Телефоны': 'https://www.mediapark.uz/products/category/17',
+    'Планшеты': 'https://www.mediapark.uz/products/category/21'
 }
 
 
